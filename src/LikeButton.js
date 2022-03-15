@@ -18,7 +18,7 @@ class LikeButton extends React.Component {
     }
     
     likeUnlike (ev) {
-        console.log('Toggle Like');
+        // console.log('Toggle Like');
         if(this.props.likeId) {
             this.unlike();
         } else {
@@ -27,7 +27,7 @@ class LikeButton extends React.Component {
     }
 
     like () {
-        console.log('Like')
+        // console.log('Like')
         const postId = this.props.postId;
         fetch('/api/posts/' + postId + '/likes/', {
             headers: getHeaders(),
@@ -36,14 +36,14 @@ class LikeButton extends React.Component {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             // call parent Component's function
             this.props.requeryPost();
         })
     }
 
     unlike () {
-        console.log('unlike')
+        // console.log('unlike')
         const postId = this.props.postId;
         const likeId = this.props.likeId
         fetch('/api/posts/' + postId + '/likes/' + likeId, {
@@ -52,7 +52,7 @@ class LikeButton extends React.Component {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             // call parent Component's function
             this.props.requeryPost();
         })

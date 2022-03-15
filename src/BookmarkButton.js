@@ -16,7 +16,7 @@ class BookmarkButton extends React.Component {
     }
     
     toggleBookmark (ev) {
-        console.log('Toggle Bookmark');
+        // console.log('Toggle Bookmark');
         if(this.props.bookmarkId) {
             this.unbookmark();
         } else {
@@ -25,7 +25,7 @@ class BookmarkButton extends React.Component {
     }
 
     bookmark () {
-        console.log('Bookmark')
+        // console.log('Bookmark')
         const postId = this.props.postId;
         fetch('/api/bookmarks/', {
             headers: getHeaders(),
@@ -36,14 +36,14 @@ class BookmarkButton extends React.Component {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             // call parent Component's function
             this.props.requeryPost();
         })
     }
 
     unbookmark () {
-        console.log('Unbookmark')
+        // console.log('Unbookmark')
         const bookmarkId = this.props.bookmarkId
         fetch('/api/bookmarks/' + bookmarkId, {
             headers: getHeaders(),
@@ -51,7 +51,7 @@ class BookmarkButton extends React.Component {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             // call parent Component's function
             this.props.requeryPost();
         })

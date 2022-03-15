@@ -23,7 +23,7 @@ class Post extends React.Component {
         })
         .then(response => response.json())
         .then(data => {
-            console.log('Updated post:', data);
+            // console.log('Updated post:', data);
             // after we retrieve the data, we need to redraw the component.
             this.setState({ 
                 model: data

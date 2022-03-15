@@ -5,18 +5,44 @@ import NavBar from './NavBar.js'
 import Profile from './Profile.js'
 import Suggestions from './Suggestions.js'
 import Stories from './Stories.js'
+import { getHeaders } from './utils.js';
 
 class App extends React.Component {  
+    constructor (props) {
+        super(props)
+        
+        // this.getProfile = this.getProfile.bind(this);
+        this.state = {
+            current_user: ''
+        }
+        this.getProfile();
+    }
+
+    // get current user and save to state
+    getProfile () {
+        fetch("/api/profile/", {
+            method: "GET",
+            headers: getHeaders()
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            this.setState({ 
+                current_user: data
+            })
+        })
+    }
 
     render () {
         return (
             <div>
 
-            {/* I will have to update username */}
-            <NavBar title="Photo App" username="webdev"></NavBar>
+            <NavBar title="Photo App" username={this.state.current_user.username}></NavBar>
 
             <aside>
-                <Profile />
+                <Profile 
+                    username={this.state.current_user.username}
+                    pfp={this.state.current_user.thumb_url}/>
                 <Suggestions />
             </aside>
 

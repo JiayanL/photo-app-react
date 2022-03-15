@@ -1,24 +1,43 @@
 import React from 'react';
+import { getHeaders } from './utils';
+import Suggestion from './Suggestion.js'
 
-class Suggestions extends React.Component {  
+class Suggestions extends React.Component {
     constructor(props) {
         super(props);
         // constructor logic
-        console.log('Suggestions component created');
+        // console.log('Suggestions component created');
+        this.state = {
+            suggestions: []
+        }
+        this.getSuggestions();
     }
 
-    componentDidMount() {
-        // fetch posts
-        console.log('Suggestions component mounted');
+    getSuggestions() {
+        fetch("/api/suggestions/", {
+                method: "GET",
+                headers: getHeaders()
+            })
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    suggestions: data
+                })
+                // console.log(this.state.suggestions)
+            });
     }
 
-    render () {
-        return (
-            <div className="suggestions">
-                <p className="suggestion-text">Suggestions for you</p>
-                <div>Suggestions...</div>
+    render() {
+        return ( 
+            <div className = "suggestions">
+                <p className = "suggestion-text" > Suggestions for you </p> 
+                { 
+                    this.state.suggestions.map(suggestion => {
+                        return <Suggestion model={suggestion} key={'suggestion-' + suggestion.id}/>
+                    })
+                }
             </div>
-        )     
+        )
     }
 }
 

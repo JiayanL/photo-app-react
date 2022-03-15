@@ -17,6 +17,11 @@ aside, main, nav {
 h1, h2, h3, h4 {
     font-family: 'Comfortaa', cursive;
 }
+
+a {
+    text-decoration: none;
+}
+
 a, a:visited, a:hover, a:link {
     color: rgb(44, 105, 155);
 }
@@ -387,4 +392,75 @@ button.like, button.bookmark {
     div.modal .featured-image {
         display: none;
     }
+}
+
+/* CSS for profile section */
+.profile {
+    display: inline-flex;
+}
+.profile a {
+    margin-left: 1vw;
+    margin-top: 2vh;
+    font-size: 25px;
+    color: black;
+}
+.circular-pfp {
+    overflow: hidden;
+    border: solid 1px black;
+    border-radius: 50%;
+    width: 10vh;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+.circular-pfp img {
+    height: 100%;
+}
+.pfp-wrapper {
+    height: 5vh;
+    width: 5vh;
+    overflow: hidden;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+/* CSS for suggestions */
+.pfp-wrapper {
+    height: 5vh;
+    width: 5vh;
+    overflow: hidden;
+    border-radius: 50%;
+    justify-content: center;
+}
+.suggestion * {
+    font-family: Helvetica, sans-serif;
+    display: inline-flex;
+    vertical-align: middle;
+}
+.follow {
+    float: right;
+    margin-right: 14vh;
+    color: #0066b2;
+    margin-top: .1vh;
+}
+.follow a {
+    color: #0066b2;
+}
+.acc-pfp {
+    height: 100%;
+}
+.user {
+    font-weight: bold;
+    margin-top: .1vh;
+    margin-left: .56vh;
+}
+.user a {
+    color: black;
+}
+.user-caption {
+    font-family: arial;
+    margin-left: 5.6vh;
+    margin-top: -4vh;
+    font-size: 15px;
+    color: 	#282828;
 }

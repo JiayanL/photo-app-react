@@ -2,15 +2,11 @@ import React from 'react';
 
 class NavBar extends React.Component {  
 
-    constructor(props) {
-        super(props);
-        // constructor logic
-        console.log('NavBar component created');
-    }
-
+    // I might need a constructor here
+    
     componentDidMount() {
         // fetch posts
-        console.log('NavBar component mounted');
+        // console.log('NavBar component mounted');
     }
 
     render () {

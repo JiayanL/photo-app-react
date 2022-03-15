@@ -5,12 +5,13 @@ import Post from './Post.js'
 class Posts extends React.Component {
     constructor(props) {
         super(props);
-        console.log('Posts component created');
+        // console.log('Posts component created');
         // fetch posts
-        this.getPosts();
+        
         this.state = { 
             posts: []
         }
+        this.getPosts();
     }
 
     getPosts() {
@@ -23,12 +24,12 @@ class Posts extends React.Component {
             this.setState({ 
                 posts: data
             })
-            console.log(data)
+            // console.log(data)
         })
 
     }
     render () {
-        console.log('Post is rendering...', this.state)
+        // console.log('Post is rendering...', this.state)
         return (
             <div id="posts">
                 {

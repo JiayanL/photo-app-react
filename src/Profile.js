@@ -2,21 +2,23 @@ import React from 'react';
 
 class Profile extends React.Component {  
 
-    constructor(props) {
-        super(props);
-        // constructor logic
-        console.log('Profile component created');
-    }
+    // useless constructor
 
     componentDidMount() {
         // fetch posts
-        console.log('Profile component mounted');
+        // console.log('Profile component mounted');
     }
 
     render () {
         return (
-            <header>empty profile.</header>  
-        );
+            <div className="profile">
+                <div className="circular-pfp">
+                    <img src={this.props.pfp} 
+                    alt={"profile picture for " + this.props.username} id="pfp"></img>
+                </div>
+                <a href="#">{this.props.username}</a>
+            </div>
+        )
     }
 }
 
