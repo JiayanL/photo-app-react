@@ -1,7 +1,8 @@
 import React from 'react';
 import LikeButton from './LikeButton.js'
 import {getHeaders} from './utils.js'
-import BookmarkButton from './BookmarkButton';
+import BookmarkButton from './BookmarkButton.js';
+import Comments from './Comments.js'
 
 class Post extends React.Component {  
 
@@ -65,6 +66,7 @@ class Post extends React.Component {
                     </div>
                     <p>{ post.caption }</p>
                 </div>
+                {/* <Comments postId={post.id}/> */}
             </section> 
         );     
     }
