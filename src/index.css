@@ -22,11 +22,17 @@ a {
     text-decoration: none;
 }
 
-a, a:visited, a:hover, a:link {
+/* a, a:visited, a:hover, a:link {
     color: rgb(44, 105, 155);
 }
 a:hover {
     color: #777;
+} */
+a {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
 }
 button.link {
     color: rgb(44, 105, 155);
@@ -464,3 +470,34 @@ button.like, button.bookmark {
     font-size: 15px;
     color: 	#282828;
 }
+
+/* CSS for stories */
+.story {
+    width: 8vh;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+}
+
+.story-img-wrapper {
+    border: solid 1px #D3D3D3;
+    height: 4vh;
+    width: 4vh;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: .5vh;
+    margin-left: 2vh;
+}
+.story-img-wrapper > img {
+    width: 100%;
+    height: auto;
+}
+
+.story-username {
+    font-size: 10px;
+    margin: 0;
+    display: block;
+    color: 	#282828;
+}
+
