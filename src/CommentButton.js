@@ -22,6 +22,7 @@ class AddComment extends React.Component {
       }
     
     handleSubmit(event) {
+        event.preventDefault();
         const postData = {
             "post_id": this.props.postId,
             "text": this.state.value
