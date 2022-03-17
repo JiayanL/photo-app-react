@@ -64,9 +64,10 @@ class Post extends React.Component {
                             postId={post.id} 
                             requeryPost={this.requeryPost}/>
                     </div>
-                    <p>{ post.caption }</p>
                 </div>
-                {/* <Comments postId={post.id}/> */}
+                <Comments 
+                    post={this.state.model}
+                    requeryPost={this.requeryPost}/>
             </section> 
         );     
     }

@@ -1,27 +1,41 @@
 import React from 'react';
-import LikeButton from './LikeButton.js'
 import {getHeaders} from './utils.js'
-import BookmarkButton from './BookmarkButton';
+import Comment from './Comment.js'
+import CommentButton from './CommentButton.js'
 
 class Comments extends React.Component {  
 
     constructor(props) {
         super(props);
         // console.log('Passed into Post.js by Post:', this.props.model)
+
+        // to implement comments I need
+        // the post itself
         this.state = {
-            model: this.props.model
+            model: this.props.post
         }
-        // keyword this will permanently refer to instance
     }
 
     render () {
         const post = this.state.model;
-        if (!post) {
-            return (
-                <div></div>  
-            );
-        }
-        return (<div></div>);     
+        return (
+            <div className="comment-container">
+                <div className="likes">
+                    <p>{post.likes.length} likes</p>
+                </div>
+                <div className="comments">
+                    <p><span className='comment-user'>{post.user.username}</span> {post.caption}...
+                    <a className='caption-expand' href="#">expand comment</a></p>
+                    <Comment post={post}/>
+                </div>
+                <div className="time">
+                    <p>{post.display_time}</p>
+                </div>
+                <CommentButton 
+                    post={post}
+                    requeryPost={this.props.requeryPost}/>
+            </div>
+        );     
     }
 }
 

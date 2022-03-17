@@ -176,7 +176,9 @@ main {
 }
 .card .add-comment {
     border-top: solid 1px #dbdbdb;
-    padding: 10px 15px;
+    padding: 0;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .card .add-comment .input-holder {
@@ -501,3 +503,82 @@ button.like, button.bookmark {
     color: 	#282828;
 }
 
+/* CSS for comments */
+.comment-container {
+    padding-bottom: 2vh;
+    font-family: Helvetica, sans-serif;
+}
+
+.view_more {
+    margin: 0;
+    padding: 0;
+    margin-left: 0;
+}
+.view_more button {
+    margin: 0;
+    margin-left: -.8vh;
+    color: blue;
+}
+
+.comment-container * {
+    margin: 0px;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+}
+
+.comments, .likes, .time, .addComment {
+    margin-left: 1vw;
+}
+.comment_input {
+    appearance: none;
+    border: 0;
+    font-size: 1em;
+}
+button {
+    border: none;
+    background: none;
+    font-size: 1em;
+}
+.form {
+    appearance: none;
+}
+
+.likes {
+    font-weight: 900;
+}
+.comment-user {
+    font-weight: 900;
+}
+.time {
+    color: 	#282828;
+    font-size: .7em;
+}
+.addComment {
+    width: auto;
+    margin-left: -1vh;
+    display: flex;
+}
+.left-wrapper, .right-wrapper {
+    display: inline-flex;
+}
+.right-wrapper {
+    display: inline-block;
+}
+.fa-smile {
+    margin-left: 1vw;
+}
+
+/* CSS for comment inputs */
+/* form {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    text-decoration: none;
+    padding: none;
+    margin: none;
+} */
+
+label {
+    display: none;
+}
