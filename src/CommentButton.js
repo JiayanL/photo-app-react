@@ -23,7 +23,7 @@ class AddComment extends React.Component {
     
     handleSubmit(event) {
         const postData = {
-            "post_id": this.props.post.id,
+            "post_id": this.props.postId,
             "text": this.state.value
         };
         
@@ -36,6 +36,9 @@ class AddComment extends React.Component {
             .then(data => {
                 // console.log(data);
                 this.props.requeryPost();
+                this.setState({
+                    value: ''
+                });
             });        
         // alert('A name was submitted: ' + this.state.value);
         // event.preventDefault();
@@ -51,7 +54,7 @@ class AddComment extends React.Component {
                         type="text" 
                         value={this.state.value} 
                         onChange={this.handleChange}
-                        aria-label={"Comment for " + this.props.post.id} />
+                        aria-label={"Comment for " + this.props.postId} />
                 </div>
                 <button value="submit" className="link">Post</button>
             </form>

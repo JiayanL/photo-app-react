@@ -176,9 +176,9 @@ main {
 }
 .card .add-comment {
     border-top: solid 1px #dbdbdb;
-    padding: 0;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 10px 15px;
+    /* padding-left: 15px;
+    padding-right: 15px; */
 }
 
 .card .add-comment .input-holder {
@@ -578,7 +578,3 @@ button {
     padding: none;
     margin: none;
 } */
-
-label {
-    display: none;
-}

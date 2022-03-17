@@ -1,8 +1,9 @@
 import React from 'react';
-import LikeButton from './LikeButton.js'
-import {getHeaders} from './utils.js'
+import LikeButton from './LikeButton.js';
+import {getHeaders} from './utils.js';
 import BookmarkButton from './BookmarkButton.js';
-import Comments from './Comments.js'
+import Comments from './Comments.js';
+import AddComment from './CommentButton.js';
 
 class Post extends React.Component {  
 
@@ -66,7 +67,10 @@ class Post extends React.Component {
                     </div>
                 </div>
                 <Comments 
-                    post={this.state.model}
+                    post={post}
+                    requeryPost={this.requeryPost}/>
+                <AddComment 
+                    postId={post.id} 
                     requeryPost={this.requeryPost}/>
             </section> 
         );     

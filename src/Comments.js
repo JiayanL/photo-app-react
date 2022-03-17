@@ -1,7 +1,5 @@
 import React from 'react';
-import {getHeaders} from './utils.js'
 import Comment from './Comment.js'
-import CommentButton from './CommentButton.js'
 
 class Comments extends React.Component {  
 
@@ -11,13 +9,10 @@ class Comments extends React.Component {
 
         // to implement comments I need
         // the post itself
-        this.state = {
-            model: this.props.post
-        }
     }
 
     render () {
-        const post = this.state.model;
+        const post = this.props.post;
         return (
             <div className="comment-container">
                 <div className="likes">
@@ -31,9 +26,6 @@ class Comments extends React.Component {
                 <div className="time">
                     <p>{post.display_time}</p>
                 </div>
-                <CommentButton 
-                    post={post}
-                    requeryPost={this.props.requeryPost}/>
             </div>
         );     
     }
