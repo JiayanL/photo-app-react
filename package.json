@@ -2,7 +2,6 @@
   "name": "photo-app-react",
   "version": "0.1.0",
   "homepage": "./",
-  "proxy": "http://photo-app-secured.herokuapp.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",

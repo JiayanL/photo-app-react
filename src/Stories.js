@@ -31,7 +31,7 @@ class Stories extends React.Component {
         return (
             <header className="stories">
                 {this.state.stories.map(story => 
-                    <Story model={story} />)}
+                    <Story model={story} key={'story-' + story.id}/>)}
             </header>  
         );
     }

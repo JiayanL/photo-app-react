@@ -7,10 +7,12 @@ class Suggestion extends React.Component {
         super(props);
         // console.log('Passed into Post.js by Post:', this.props.model)
         this.state = {
-            model: this.props.model
+            following: false,
+            following_id: null
         }
         // keyword this will permanently refer to instance
         // this.requeryPost = this.requeryPost.bind(this);
+        this.toggleFollow = this.toggleFollow.bind(this);
     }
     
     // requeryPost() {
@@ -29,25 +31,79 @@ class Suggestion extends React.Component {
     //     })
     // }
 
+    toggleFollow (e) {
+        e.preventDefault()
+        // console.log('follow clicked')
+        if (this.state.following) {
+            console.log('unfollow');
+            this.unfollow();
+        }
+        else {
+            console.log('follow')
+            this.follow();
+        }
+    }
+
+    unfollow () {
+        fetch("/api/following/" + this.state.following_id, {
+            method: "DELETE",
+            headers: getHeaders()
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            this.setState({
+                following: false
+            })
+        });
+    }
+
+    follow () {
+        const postData = {
+            "user_id": this.props.model.id
+        };
+        
+        fetch("/api/following/", {
+                method: "POST",
+                headers: getHeaders(),
+                body: JSON.stringify(postData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    following: true,
+                    following_id: data.id
+                })
+            });
+    }
+
     render () {
-        const suggestion = this.state.model;
+        const suggestion = this.props.model;
         if (!suggestion) {
             return (
                 <div></div>  
             );
         }
-        console.log(this.props.model)
         return (
             <div className="suggestion">
                 <div className="pfp-wrapper">
                     <img src={suggestion.thumb_url} className="acc-pfp" alt={"profile picture for " + suggestion.username}></img>
                 </div>
                     <p className="user"><a href="#">{suggestion.username}</a></p>
-                    <p className="follow"><a href="#">follow</a></p>
+                    {/* <p className="follow"><a onClick={this.toggleFollow}href="#">follow</a></p> */}
+                    <button
+                        role="switch"
+                        className="link following"
+                        id={"follow-" + suggestion.username}
+                        aria-checked={ this.state.following ? true : false }
+                        aria-label={"Follow " + suggestion.username}
+                        onClick={this.toggleFollow}>
+                            {this.state.following ? "Unfollow" : "Follow"}
+                    </button>
                 <br></br>
                     <p className="user-caption">suggested for you</p>
             </div>
-
         );     
     }
 }
