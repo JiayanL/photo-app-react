@@ -20,7 +20,7 @@ class Post extends React.Component {
     requeryPost() {
         // get a post with an updated data structure from the Server
         // i.e. new comment, like, or bookmark
-        fetch('/api/posts/' + this.props.model.id, {
+        fetch('https://photo-app-secured.herokuapp.com/api/posts/' + this.props.model.id, {
             headers: getHeaders(),
         })
         .then(response => response.json())

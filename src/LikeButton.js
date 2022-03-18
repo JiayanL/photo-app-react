@@ -29,7 +29,7 @@ class LikeButton extends React.Component {
     like () {
         // console.log('Like')
         const postId = this.props.postId;
-        fetch('/api/posts/' + postId + '/likes/', {
+        fetch('https://photo-app-secured.herokuapp.com/api/posts/' + postId + '/likes/', {
             headers: getHeaders(),
             body: JSON.stringify({}),
             method: 'POST'
@@ -46,7 +46,7 @@ class LikeButton extends React.Component {
         // console.log('unlike')
         const postId = this.props.postId;
         const likeId = this.props.likeId
-        fetch('/api/posts/' + postId + '/likes/' + likeId, {
+        fetch('https://photo-app-secured.herokuapp.com/api/posts/' + postId + '/likes/' + likeId, {
             headers: getHeaders(),
             method: 'DELETE'
         })

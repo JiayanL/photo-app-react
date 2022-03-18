@@ -20,7 +20,7 @@ class App extends React.Component {
 
     // get current user and save to state
     getProfile () {
-        fetch("/api/profile/", {
+        fetch("https://photo-app-secured.herokuapp.com/api/profile/", {
             method: "GET",
             headers: getHeaders()
         })
