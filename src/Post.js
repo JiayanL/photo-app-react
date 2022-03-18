@@ -3,7 +3,7 @@ import LikeButton from './LikeButton.js';
 import {getHeaders} from './utils.js';
 import BookmarkButton from './BookmarkButton.js';
 import Comments from './Comments.js';
-import AddComment from './CommentButton.js';
+import AddComment from './AddComment.js';
 
 class Post extends React.Component {  
 

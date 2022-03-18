@@ -12,9 +12,13 @@ class AddComment extends React.Component {
         // React is the single state of truth
         this.state = {value: ''};
 
+        // ref to store dom element
+        this.textInput = React.createRef();
+
         // bind methods to handle changes in state and submission
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this._handleKeyDown = this._handleKeyDown.bind(this);
     }
 
     handleChange(event) {
@@ -40,10 +44,18 @@ class AddComment extends React.Component {
                 this.setState({
                     value: ''
                 });
+                this.textInput.current.focus();
             });        
         // alert('A name was submitted: ' + this.state.value);
         // event.preventDefault();
       }
+
+    // submit post on Enter
+    _handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+          this.handleSubmit();
+        }
+    }
 
     render () {
         return (
@@ -55,7 +67,9 @@ class AddComment extends React.Component {
                         type="text" 
                         value={this.state.value} 
                         onChange={this.handleChange}
-                        aria-label={"Comment for " + this.props.postId} />
+                        aria-label={"Comment for " + this.props.postId}
+                        ref={this.textInput} 
+                        onKeyDown={this._handleKeyDown}/>
                 </div>
                 <button value="submit" className="link">Post</button>
             </form>
